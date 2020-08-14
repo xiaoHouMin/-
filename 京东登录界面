@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录密码的隐藏和显现</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 京东登录 */
+        .denglu {
+            width: 400px;
+            margin: 30px auto;
+        }
+
+        .denglu h3 {
+            color: rgb(100, 100, 100);
+            font-size: 20px;
+            text-align: center;
+        }
+
+        /* 输入账号 */
+        .zh {
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #ccc;
+            margin: 40px auto 20px auto;
+        }
+
+        .zh input {
+            width: 400px;
+            border: 0;
+            outline: none;
+        }
+
+        /* 输入密码 */
+        .box {
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #ccc;
+            margin: 10px auto;
+        }
+
+        .box input {
+            width: 370px;
+            border: 0;
+            outline: none;
+        }
+
+        .box img {
+            position: absolute;
+            width: 15px;
+            right: 71px;
+            top: 2px;
+        }
+
+        .box a {
+            position: absolute;
+            text-decoration: none;
+            border-left: black;
+            font-size: 10px;
+            color: rgb(27, 27, 27);
+            right: 3px;
+            top: 1px;
+        }
+
+        /* 眼睛后面的竖线 */
+        .xian {
+            position: absolute;
+            width: 1px;
+            height: 12px;
+            border-left: 1px solid rgb(100, 100, 100);
+            right: 55px;
+            top: 2px;
+        }
+
+        /* 登录按钮 */
+        .butt {
+            position: relative;
+            width: 400px;
+            height: 30px;
+            margin: 20px auto;
+        }
+
+        .butt button {
+            width: 400px;
+            height: 30px;
+            background: rgb(255, 0, 0);
+            border: none;
+            color: white;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        /* 短信&手机登录按钮 */
+        .butt .left a {
+            position: absolute;
+            left: 0;
+            top: 34px;
+            text-decoration: none;
+            font-size: 12px;
+            color: rgb(27, 27, 27);
+        }
+
+        .butt .right a {
+            position: absolute;
+            right: 0;
+            top: 34px;
+            text-decoration: none;
+            font-size: 12px;
+            color: rgb(27, 27, 27);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- //京东登录盒子 -->
+    <div class="denglu">
+        <h3>京东登录</h3>
+    </div>
+
+    <!-- //账号盒子 -->
+    <div class="zh">
+        <input type="text" value="" id="yonghu">
+    </div>
+
+    <!-- //密码盒子 -->
+    <div class="box">
+        <label for="">
+            <img src="D:\VScode\Javasricpt\Close.png" alt="" id="eye">
+        </label>
+        <input type="password" name="" id="pwd" value="">
+        <div class="xian"></div>
+        <a href="#" id="wanji">忘记密码</a>
+    </div>
+
+    <!-- 点击登录按钮 -->
+    <div class="butt">
+        <button>登 录</button>
+
+        <div class="left">
+            <a href="#">短信验证登录</a>
+        </div>
+        <div class="right">
+            <a href="#">手机快速登录</a>
+        </div>
+    </div>
+
+    <!-- 其他登录方式盒子 -->
+    <!-- <div class="qita">
+        
+    </div> -->
+
+    <!-- //js代码 -->
+    <script>
+        // 获取元素
+        var eye = document.getElementById('eye');
+        var pwd = document.getElementById('pwd');
+        // 注册事件，处理程序
+        var flag = 0;
+        eye.onclick = function () {
+            // 点击一次后需要重新赋值
+            if (flag == 0) {
+                pwd.type = 'text';
+                // eye.src="D:\VScode\javasricpt\close.png"; //文件名第一个字母和语法冲突了
+                eye.src = 'Open.png';   //相对路径和绝对路径都没用，用同一目录下的地址就可以了
+                flag = 1;   //赋值操作
+            } else {
+                pwd.type = 'password';
+                eye.src = 'Close.png';
+                flag = 0;
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
